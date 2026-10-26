@@ -1,5 +1,7 @@
 # Cloudflare Durable Object activation latency reproduction
 
+Upstream report: [cloudflare/workerd#8010](https://github.com/cloudflare/workerd/issues/8010).
+
 A tiny hosted-Workers reproduction of **multi-second delays before a Durable Object's JavaScript RPC handler begins**. In the captured run, an empty SQLite-backed target took **27.844 seconds** to answer; its native invocation reported **0 ms CPU**. Immediate repeats were fast.
 
 This is a hosted-platform observation. It has not been reproduced in local `workerd`, and the evidence does not establish a particular internal cause.
