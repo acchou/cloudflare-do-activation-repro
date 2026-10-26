@@ -1,0 +1,73 @@
+# Concurrent requests to a stalled object
+
+**All 33 follow-ups in 11 reproduced stalls waited for the original handler to begin.** In each group, the four handlers ran in the same recorded millisecond, on the same object ID and instance UUID, with sequence numbers 1–4. None of the follow-ups bypassed the wait.
+
+This is a second, separate experiment from the [2,016-probe placement study](../README.md). It does not establish that every kind of Durable Object delay behaves this way.
+
+## Run and workload
+
+- Measured **2026-10-26 20:42:07.354–20:48:17.160 UTC**.
+- Worker `do-activation-d5f54eab08f7`, version `ab14e375-2df7-4ab8-b852-34db63dcd6fb`.
+- Wrangler 4.151.1, compatibility date 2026-04-09, SQLite-backed objects; no application initialization, writes, external calls or explicit concurrency gates in the target handler.
+- 64 fresh target identities: 16 each with auto, wnam, enam and weur hints. Eight callers were warmed first; four were used for primary requests, four for the alternative-caller path.
+- Initial access plus 12 rounds after 25 seconds idle; at most four primary groups in flight.
+- **873 requests = 832 primary calls + 33 follow-ups + 8 caller warm-ups. All succeeded.**
+
+If a primary HTTP request remained pending after one second, the driver issued three requests to the same target: through a new stub in the same caller DO, through another caller DO, and directly from the stateless HTTP Worker. It awaited all four results. Server-side dispatch timestamps confirm that all 33 follow-ups were dispatched before the original target handler began.
+
+The 11 stalls affected three distinct objects. Their primary RPC durations were 1,758; 2,601; 4,777; 2,760; 1,180; 5,062; 3,393; 7,339; 9,913; 1,376; and 2,470 ms, in recording order. All original requests were the first handler call on their current in-memory instance.
+
+## Longest example
+
+| Route                             | RPC dispatch after original | Awaited RPC | Handler entry after original dispatch |
+| --------------------------------- | --------------------------: | ----------: | ------------------------------------: |
+| Original through Caller DO        |                        0 ms |    9,913 ms |                              9,904 ms |
+| Direct Worker → Target            |                      985 ms |    8,930 ms |                              9,904 ms |
+| Different Caller DO → Target      |                      994 ms |    8,919 ms |                              9,904 ms |
+| Same Caller DO → Target, new stub |                    1,042 ms |    8,872 ms |                              9,904 ms |
+
+- Original probe: `7b1a330b-2722-4772-8c9d-06a193f036b3`.
+- Group: `f9d135fc-6517-4cc3-a659-aec5747681e2`.
+- Target: `09bcac9064d49073019c70a4adb3cddc11d4821383ff05a97a5c879941ec776f`, native colo **LAX**.
+- Original dispatch: **20:45:47.279 UTC**; all four target entries: **20:45:57.183 UTC**.
+- [Native trace](traces/trace-9913ms.json): `cc85086d038328fc95703a8d624d54a6`.
+
+The native target invocation recorded **0 ms CPU** and **8,865 ms wall time**. Its `jsrpc` span began at 20:45:48.340 UTC, after the follow-ups were launched, and ended at the four handler entries at 20:45:57.183 UTC: **8,843 ms before JavaScript entry**. Native invocation/session durations are not treated as the original request's latency; the caller independently measured 9,913 ms and the HTTP client measured 9,954 ms.
+
+The second [trace](traces/trace-4777ms.json), `caa61fc71fed78533aaaa7b9714aca9f`, captures a 4,777 ms original RPC with the same four-call pattern. Its target used 1 ms CPU; each exported handler and storage-read span took 0 ms at the recorded resolution.
+
+## Reproduce and inspect
+
+From a freshly set-up and deployed checkout:
+
+```sh
+npm run concurrency
+npm run concurrency-summary -- .local/runs/concurrency-<timestamp>/samples.ndjson
+npm run cleanup
+```
+
+The workload is fixed to the parameters above and takes several minutes. It creates new identities on every run. A run without a long stall does not disprove this intermittent failure. To inspect the checked-in run:
+
+```sh
+npm run concurrency-summary
+npm test
+```
+
+The current [Worker](../../../src/worker.ts) adds `/direct` to the earlier reproduction. `Target.ping()` and `Caller.run()` are unchanged. The [driver](../../../scripts/concurrency.mjs) preserves the measured workload, with repository-local output paths and deployment/failure checks. [Source provenance](source-provenance.json) records the original source hashes and packaging differences.
+
+## Files and sanitization
+
+- [samples.ndjson](samples.ndjson): all 873 records, with probe/group IDs, route/role, identity and hint, client timestamps, HTTP status/ray, caller dispatch/return timestamps, and target entry/finish, instance and sequence fields. Times and values are unchanged. Response fields are allowlisted.
+- [summary.json](summary.json): reproducible grouping and per-follow-up comparisons, generated by `npm run concurrency-summary`.
+- [design.json](design.json): workload, generated identities and deployed version.
+- [native-placement.json](native-placement.json): intermediate native object/colo mapping, not a final request-count ledger.
+- [traces/](traces/): two compact native trace exports. Allowlisted fields retain span/parent/trace IDs, times, operations, object IDs, entrypoints, colos, CPU and wall time. They omit account IDs, IP addresses, request headers and unrelated event metadata.
+- [completion.json](completion.json) and [deletion-verification.json](deletion-verification.json): run totals and verified deletion. The temporary Worker was deleted and a subsequent settings request returned HTTP 404 / Cloudflare error 10007.
+
+## Interpretation and limits
+
+This sample supports a shared wait before target handler execution. It does **not** identify the internal activation, storage, scheduling or dispatch mechanism. Cross-host timestamps depend on clock alignment; independent same-process RPC/client durations and native spans support the observed delay. Millisecond timestamps do not mean zero physical execution time.
+
+The experiment used one deployment, one client ingress and a bounded population. Follow-ups might affect activation behavior, so it cannot estimate how long the original would have waited without them. These are read-only probes; they do not establish safe retry semantics for writes.
+
+[Issue #7607](https://github.com/cloudflare/workerd/issues/7607) reports duplicates sometimes bypassing a delayed original and sometimes waiting with it. No bypass was observed here. Parallel requests to the same identity therefore cannot be assumed to avoid this startup stall.

@@ -138,6 +138,22 @@ export default {
       return new Response("Invalid input", { status: 400 });
     try {
       const started = Date.now();
+      if (path === "/direct") {
+        const target = await env.TARGET.getByName(
+          input.key,
+          input.hint === "auto" ? undefined : { locationHint: input.hint },
+        ).ping(input.id);
+        const ended = Date.now();
+        return Response.json({
+          id: input.id,
+          started,
+          ended,
+          rpcMs: ended - started,
+          target,
+          outerMs: ended - started,
+          colo: request.cf?.colo,
+        });
+      }
       const caller = env.CALLER.getByName(input.caller, {
         locationHint: "wnam",
       });

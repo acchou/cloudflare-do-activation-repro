@@ -1,0 +1,9 @@
+{
+  "worker": "do-activation-d5f54eab08f7",
+  "version": "ab14e375-2df7-4ab8-b852-34db63dcd6fb",
+  "rawWorkerSha256": "928d77038d7715a87db574e071d672fcb2f892902b0c8db5667a093462d3f041",
+  "rawDriverSha256": "83551a381dced5770f3d36c86222c112ef54e6646a2a4c3c2daa0573e90d40b9",
+  "publicWorkerChanges": "Formatting only versus the measured concurrency Worker; adds /direct relative to the previous published Worker. Target.ping and Caller.run are unchanged.",
+  "publicDriverChanges": "Original workload and scheduling; adjusted helper import and output paths, added deployment-state check and failure exit status.",
+  "sanitization": "All 873 client records retained, result fields allowlisted. Native traces flattened and allowlisted; HTTP headers, request metadata, IPs, account IDs and unrelated source fields removed. Times, IDs, colos, span relationships and durations unchanged."
+}

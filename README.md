@@ -16,7 +16,7 @@ Node client → HTTP Worker → Caller Durable Object → Target Durable Object
 
 `Caller.run()` measures the exact awaited RPC. The client separately measures HTTP wall time. An authenticated `/locate` endpoint fetches Cloudflare's `/cdn-cgi/trace` from inside the objects, outside timed ping calls. Native Cloudflare spans independently corroborated all 72 target locations in the recorded study.
 
-The Worker preserves the measured implementation (formatting only). The public runner is a smaller idle/repeat harness; it is **not** the original three-stage placement-study driver.
+The Worker preserves the measured target and caller implementations, and adds a direct Worker-to-target route for the concurrency experiment. The public runner is a smaller idle/repeat harness; it is **not** the original three-stage placement-study driver.
 
 ## Captured evidence
 
@@ -30,6 +30,12 @@ The [recorded study](evidence/2026-10-26/README.md) includes **all 2,016 synthet
 One fresh `enam` identity placed in ORD repeatedly stalled. In six controlled idle/reopen pairs, it took **3.726–16.925 seconds on five first calls**; all six immediate repeats were **≤83 ms**. Both original and newly created callers encountered delays. Other objects remained fast in the same trials.
 
 Changing identities and location hints did not reliably eliminate the problem. An earlier IAD object recovered without changing identity, while its replacement in ORD developed its own stalls. This is related context for [workerd #7607](https://github.com/cloudflare/workerd/issues/7607), but differs from that report's delays on already-running targets. An object can reactivate in an existing JS isolate; object activation and isolate cold start are separate measurements here.
+
+## Concurrent calls during a stall
+
+A [second experiment](evidence/2026-10-26/concurrency/README.md) sent additional requests while the original was still pending. Across **832 primary calls**, it reproduced **11 stalls** on three objects. **All 33 follow-ups**—through the same caller, another caller, and directly from a Worker—waited for the original target handler to begin.
+
+The longest original RPC took **9.913 seconds**. Follow-ups issued about one second later waited another **8.872–8.930 seconds**. All four handlers then ran in the same recorded millisecond on the same object instance. The target recorded 0 ms CPU. [All 873 requests and two native traces](evidence/2026-10-26/concurrency/) are included; this is evidence about these startup stalls, not a universal claim about all DO delays.
 
 ## Run
 
@@ -45,6 +51,8 @@ npx wrangler login
 npm run setup
 npm run deploy
 npm run probe
+# Optional separate concurrency experiment (64 targets, 12 idle rounds):
+npm run concurrency
 npm run cleanup
 ```
 

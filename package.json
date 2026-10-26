@@ -14,7 +14,9 @@
     "probe": "node scripts/probe.mjs",
     "summary": "node scripts/summary.mjs",
     "cleanup": "node scripts/cleanup.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "concurrency": "node scripts/concurrency.mjs",
+    "concurrency-summary": "node scripts/concurrency-summary.mjs"
   },
   "devDependencies": {
     "typescript": "6.0.3",

@@ -1,0 +1,11 @@
+{
+  "worker": "do-activation-d5f54eab08f7",
+  "deleted": true,
+  "verification": {
+    "method": "GET",
+    "endpoint": "workers/scripts/do-activation-d5f54eab08f7/settings",
+    "httpStatus": 404,
+    "cloudflareErrorCode": 10007,
+    "message": "This Worker does not exist on your account"
+  }
+}

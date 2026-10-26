@@ -1,0 +1,439 @@
+{
+  "requests": 873,
+  "failures": 0,
+  "primaryRequests": 832,
+  "groupsWithFollowers": 11,
+  "incompleteGroups": 0,
+  "followups": 33,
+  "groups": [
+    {
+      "groupId": "b1c2bd4c-56e1-4460-81ee-257088047a36",
+      "primaryId": "1de76da2-631f-49ef-b20b-dd5be9a64f4d",
+      "primaryRpcMs": 1758,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "38b07957-8e35-4b4c-9bb2-7de70aa3de47",
+          "rpcMs": 778,
+          "dispatchOffsetMs": 988,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "684b4fd4-60e7-4008-aec2-10b13d0465e8",
+          "rpcMs": 759,
+          "dispatchOffsetMs": 999,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "98d2d1b8-3651-46ed-82fb-b888678d745f",
+          "rpcMs": 762,
+          "dispatchOffsetMs": 1015,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "93af3c38-82e0-446c-aed6-65b61cff23cf",
+      "primaryId": "a5b61404-b945-4356-ae37-97ac2cbe700a",
+      "primaryRpcMs": 2601,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "5fe36874-5964-4568-9abb-bb11a54f4a16",
+          "rpcMs": 1584,
+          "dispatchOffsetMs": 1009,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "7c0eb60c-e9be-459d-aee1-f5dd40d1cf15",
+          "rpcMs": 1569,
+          "dispatchOffsetMs": 1032,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "eab73252-836c-4e13-9928-90a9a90f05d5",
+          "rpcMs": 1583,
+          "dispatchOffsetMs": 1020,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "799f3b68-65fc-4e82-9354-cb9232dd89d2",
+      "primaryId": "0d5e4e9d-3357-48d3-a7f2-8643d15bd13b",
+      "primaryRpcMs": 4777,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "other-caller",
+          "id": "80270f27-480f-46d9-b0aa-edd3c53a6c20",
+          "rpcMs": 3790,
+          "dispatchOffsetMs": 989,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "direct-worker",
+          "id": "622634c5-a7da-4b41-9541-0731f66e358a",
+          "rpcMs": 3796,
+          "dispatchOffsetMs": 985,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "01be0a93-1a0c-4a5a-a8e5-38dd1a485a74",
+          "rpcMs": 3808,
+          "dispatchOffsetMs": 970,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "2caf9934-0fc2-4c7b-be4f-e1a8a2a2a8cc",
+      "primaryId": "6171d5fa-497a-4d42-bbb4-4fa2fff30cd9",
+      "primaryRpcMs": 2760,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "c512cd1f-863b-41dc-99a8-8cd1d2290792",
+          "rpcMs": 1782,
+          "dispatchOffsetMs": 978,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "de116835-3d0d-4d80-abc4-9a4795fceb57",
+          "rpcMs": 1781,
+          "dispatchOffsetMs": 979,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "995d352c-f327-4712-837a-bcfbc4ef093c",
+          "rpcMs": 1639,
+          "dispatchOffsetMs": 1131,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "ab8f3ef2-f674-4eaa-9e8f-0e5c965812fa",
+      "primaryId": "5e1966e2-cba7-41eb-9237-b9ab6bbeca7a",
+      "primaryRpcMs": 1180,
+      "targetObjectId": "09bcac9064d49073019c70a4adb3cddc11d4821383ff05a97a5c879941ec776f",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "79efa7ba-7b38-492c-a19c-9388805cb363",
+          "rpcMs": 188,
+          "dispatchOffsetMs": 993,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "33e74c83-08c2-4c9f-a7e1-b5c5fe6eecdf",
+          "rpcMs": 207,
+          "dispatchOffsetMs": 975,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "49fecbe5-fd76-4bb9-be4d-1579c63c42e9",
+          "rpcMs": 178,
+          "dispatchOffsetMs": 1014,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "d17ea516-699c-4304-8bdb-4cf52360c8f2",
+      "primaryId": "6ce5a080-1263-408e-ac82-3092aaf09586",
+      "primaryRpcMs": 5062,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "6986383b-89c2-4f21-83e7-d5212d2bae26",
+          "rpcMs": 4069,
+          "dispatchOffsetMs": 999,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "fd3148f5-bc67-42dc-b82c-17e5c41c1e3a",
+          "rpcMs": 4060,
+          "dispatchOffsetMs": 1002,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "62aa325d-4a42-4038-94ff-c3d890e7f4bb",
+          "rpcMs": 4009,
+          "dispatchOffsetMs": 1071,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "f64afb57-5d74-4330-9b51-86d29b5b1caa",
+      "primaryId": "15d4bc19-4b4a-4b13-b772-ec940003eb50",
+      "primaryRpcMs": 3393,
+      "targetObjectId": "73d32273d6f36a59895079af8f1e7b5d2474374331967991972f2228c15fb524",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "49e7d01a-717c-421c-976b-f00951c16421",
+          "rpcMs": 2368,
+          "dispatchOffsetMs": 1023,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "5265baac-dbfc-4f24-b569-75176906d02e",
+          "rpcMs": 2340,
+          "dispatchOffsetMs": 1052,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "1dab0b8e-8328-4f38-bd21-f8c4bea4fafb",
+          "rpcMs": 2269,
+          "dispatchOffsetMs": 1126,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "9eea9789-b30e-4c28-97f8-1eda7397dd11",
+      "primaryId": "e31d72a1-3b8c-4f01-8009-976a88a95dd0",
+      "primaryRpcMs": 7339,
+      "targetObjectId": "09bcac9064d49073019c70a4adb3cddc11d4821383ff05a97a5c879941ec776f",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "63e86c93-fc23-4873-8e60-58b65442fff4",
+          "rpcMs": 6308,
+          "dispatchOffsetMs": 1019,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "82dfed45-a318-4eb7-acb0-3d91f900eef8",
+          "rpcMs": 6332,
+          "dispatchOffsetMs": 1007,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "4ea359f4-f65e-4b7a-930d-e26b696aed58",
+          "rpcMs": 6278,
+          "dispatchOffsetMs": 1058,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "f9d135fc-6517-4cc3-a659-aec5747681e2",
+      "primaryId": "7b1a330b-2722-4772-8c9d-06a193f036b3",
+      "primaryRpcMs": 9913,
+      "targetObjectId": "09bcac9064d49073019c70a4adb3cddc11d4821383ff05a97a5c879941ec776f",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "other-caller",
+          "id": "7cda84a5-3d6d-4fe5-873b-a5bda8259fce",
+          "rpcMs": 8919,
+          "dispatchOffsetMs": 994,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "direct-worker",
+          "id": "6adf851d-9550-4de0-a9f8-9287ad7b1402",
+          "rpcMs": 8930,
+          "dispatchOffsetMs": 985,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "a39f56e4-a060-43bc-9257-cfa22a46d32a",
+          "rpcMs": 8872,
+          "dispatchOffsetMs": 1042,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "83e1553d-8b15-4688-b381-e4ed07ffba40",
+      "primaryId": "2a313a02-156f-4900-a600-e0d1b3adabd9",
+      "primaryRpcMs": 1376,
+      "targetObjectId": "5d0aa0d1a183bdabcb741aee27b5604b430a0554a77a8be99faa59feefcfb4d7",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "direct-worker",
+          "id": "dc887b9d-f362-405f-ab8c-12821ce1714a",
+          "rpcMs": 349,
+          "dispatchOffsetMs": 1017,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "6040be21-de7c-4a31-bd82-883e939462de",
+          "rpcMs": 357,
+          "dispatchOffsetMs": 1019,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "other-caller",
+          "id": "3500f7a2-854f-409e-8efe-0795235e4afe",
+          "rpcMs": 283,
+          "dispatchOffsetMs": 1103,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    },
+    {
+      "groupId": "e0d405ca-5b98-4eb9-bd08-2078577cbc82",
+      "primaryId": "5d54e557-6c39-4ef5-a397-552d3f6a9c3d",
+      "primaryRpcMs": 2470,
+      "targetObjectId": "09bcac9064d49073019c70a4adb3cddc11d4821383ff05a97a5c879941ec776f",
+      "primarySequence": 1,
+      "followers": [
+        {
+          "role": "other-caller",
+          "id": "a68f1b91-7ad0-448b-9617-a99be868ed85",
+          "rpcMs": 1423,
+          "dispatchOffsetMs": 1046,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "direct-worker",
+          "id": "506e14e5-efd9-4cec-8730-9d89b6e052fc",
+          "rpcMs": 1495,
+          "dispatchOffsetMs": 975,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        },
+        {
+          "role": "same-caller",
+          "id": "928ecd58-97a5-4655-814e-ba147e7b0542",
+          "rpcMs": 1491,
+          "dispatchOffsetMs": 981,
+          "dispatchedBeforePrimaryHandler": true,
+          "handlerOffsetMs": 0,
+          "sameObject": true,
+          "sameInstance": true
+        }
+      ]
+    }
+  ]
+}
