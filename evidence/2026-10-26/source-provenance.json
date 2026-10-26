@@ -1,0 +1,11 @@
+{
+  "recorded_at_utc": "2026-10-26T20:24:17.963Z/2026-10-26T20:31:43.270Z",
+  "worker": "codex-placement-446b6c",
+  "worker_version": "0c5183b4-c380-4983-bf82-15e3274012ba",
+  "compatibility_date": "2026-04-09",
+  "wrangler_version": "4.151.1",
+  "original_source_sha256": "e09ee60fa96c53de05ff77892651f75cc0625021a04b4bb702695f1e2d45249e",
+  "worker_source_changes": "Formatting only; src/worker.ts preserves the measured logic. Public runner is a simpler idle/repeat loop, not the original three-stage study driver.",
+  "deployment_deleted": true,
+  "notes": "Account IDs, credentials, local paths, and unrelated application logs omitted. Object, probe, isolate and trace IDs belong solely to synthetic objects in the deleted temporary Worker."
+}

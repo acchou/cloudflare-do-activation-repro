@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "do-activation-repro",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-04-09",
+  "minify": true,
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    }
+  },
+  "vars": {
+    "AUTH_HASH": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "TARGET",
+        "class_name": "Target"
+      },
+      {
+        "name": "CALLER",
+        "class_name": "Caller"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["Target", "Caller"]
+    }
+  ]
+}

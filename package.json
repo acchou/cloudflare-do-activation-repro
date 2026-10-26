@@ -1,0 +1,23 @@
+{
+  "name": "cloudflare-do-activation-repro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "types": "wrangler types --config wrangler.jsonc src/env.d.ts",
+    "check": "npm run types && tsc --noEmit",
+    "deploy": "node scripts/deploy.mjs",
+    "probe": "node scripts/probe.mjs",
+    "summary": "node scripts/summary.mjs",
+    "cleanup": "node scripts/cleanup.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.1",
+    "typescript": "6.0.3"
+  }
+}
