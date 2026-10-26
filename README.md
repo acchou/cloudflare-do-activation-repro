@@ -33,6 +33,8 @@ Changing identities and location hints did not reliably eliminate the problem. A
 
 ## Run
 
+The CLI is pinned to Wrangler 4.151.1, matching the recorded run. Its Miniflare dependency uses an `undici` 7.30.1 override for published security fixes; this packaging patch does not alter the measured Worker source or historical evidence.
+
 Requires Node.js 22 or later and a Cloudflare account with Workers and SQLite Durable Objects enabled. This deploys a small billable Worker in your account; the cleanup command deletes only the randomly named Worker created by setup.
 
 ```sh
